@@ -8,6 +8,9 @@ líneas
 '''
 
 # Variables
+from hashlib import new
+
+
 x = 2 # x representa una variable con valor asignado 2
 y = 5 # y sería una variable con valor asignado 5
 z = x + y # z es una variable con valor asignado x + y = 7
@@ -106,10 +109,103 @@ print(dict1[0]) # Muestra el contenido para la llave 0
 print(dict1["llave1"]) # Muestra el contenido para la llave llave1
 print(dict1[(1, 2, 3)]) # Muestra el contenido para la llave (1, 2, 3)
 
+# Condicionales, bucles y funciones
+###################################
+
+# Condicionales: if, elif, else
+x = 40
+
+if x < 4:
+    print("El valor de x es menor que 4")
+    print("Esta linea si se encuentra en el if")
+elif x>1 and x<15: # elif es un else acompañado de un if abreviado
+    print("El valor de x es", x)
+elif x < 20: # Si no se cumplió la condición anterior, pregunto por esta nueva condición
+    print("El valor de x es menor que 20") 
+else:
+    print("El valor de x no cumple ninguna de las condiciones")
+
+# Bucles:
+# Existen dos tipos de bucles: for y while
+
+# For
+lista5 = [4,2,8,6,3,4]
+
+for i in lista5: # Por cada elemento i pertenciente a la lista5, hago algo
+    print("Estoy iterando")
+    print(i)
+
+# Puedo usar un for de manera parecida a como lo hacia en javascript? (con un contador?)
+# ... Algo asi...
+for i in range(0,len(lista5)):# range(0, 6)
+    print(f"El valor del elemento {i} en lista5 es", lista5[i])
+
+# While (mientras)
+k=1
+# Mientras k sea menor que 10... hago algo
+while k<10:
+    print(k)
+    k+=1 # Es equivalente k = k + 1
+print("Valor de k fuera del while", k)
+
+# El while, por lo general, puede ir acompanado de dos sentencias: break y continue
+# break: detiene la ejecucion completa del while
+# continue: se salta una iteracion del while
+k=1
+while k<10:
+    if k%3 == 0: # Todos los números cuyo resto al dividirse por 3 sea cero, son multiplos de 3
+        k+=1
+        print("Encontré un múltiplo de 3")
+        continue
+    if k%4 == 0:
+        print("Encontre un multiplo de 4")
+        break
+    
+    print("El valor de k es:", k)
+    k +=1
+else:
+    print("Ejecución del else")
+print("Terminé la ejecución del while")
 
 
+# Funciones (por fin!)
+# Funciones son bloques de código que pueden ser llamados
+def suma_num(a, b): # Esta función retornara la suma de a+b
+    return a+b
 
+# Vamos a utilizar esta función que acabamos de definir
+x = 10
+y = 7
+z=suma_num(x, y) # A la variable z se le asigna el retorno de suma_num (17)
+print(f"La suma de {x} y {y} es:", suma_num(x,y))
 
+# Las funciones pueden tener cero parametros de entrada
+def getMessage():
+    return "Este es mi mensaje"
+print(getMessage())
+
+# Incluso puedes tener funciones sin parametros de entrada y sin parametros de salida
+def printMessage():
+    print("Este es mi nuevo mensaje")
+
+for i in range(3):
+    printMessage() # Este for llamará a la función printMessage tres veces
+
+# Las funciones en python permiten tener parametros por omision
+def sumaTresNumeros(a, b, c=0): # Indicaremos un valor por omisión para c. En este caso, de cero para que no afecte la suma cuando son dos numeros
+    return a+b+c
+
+print(sumaTresNumeros(10,7,3)) # Este print mostrará 20
+print(sumaTresNumeros(10,7)) # Este print mostrará 17
+
+# Recursion: Una recursion es cuando llamas a una funcion recursivamente
+def factorial(n):
+    if n == 1 or n==0:
+        return 1
+    
+    return n*factorial(n-1)
+
+print(factorial(6))
 
 # Escriba un código Python que entregue ciertas caracterı́sticas de un número solicitado. Para esto, el programa deberá realizar las siguientes tareas:
 # Solicitar al usuario un número entero positivo perteneciente al rango [2,1000]. Su programa debe verificar esta condición. En caso contrario, se debe pedir otro número hasta que se cumpla la condición.
