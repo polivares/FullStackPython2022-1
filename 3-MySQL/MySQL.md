@@ -78,6 +78,7 @@ Consideremos los siguientes datos sin normalizar (forma normal cero 0NF)
 ```console
 (DjangoVenv)$ sudo apt install mysql-server
 ```
+Más detalles de instalación en el siguiente enlace: https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/
 
 (Revisar plataforma de Coding Dojo para otros sistemas operativos)
 
@@ -152,6 +153,14 @@ mysql>
 ```
 
 ## 4 Creación de tablas
+
+Para crear tablas en una base de datos, es necesario tener dicha base de datos activa. Es decir, haber utilizado anteriormente el comando
+
+```console
+    mysql> use <nombre_base_de_datos>;
+```
+
+### 4.1 Ejemplo de creación de tablas en una base de datos
 
 ```console
 mysql> create table App1_cliente (id MEDIUMINT NOT NULL AUTO_INCREMENT, nombre VARCHAR(20), run BIGINT, dv INT, PRIMARY KEY (id));      
