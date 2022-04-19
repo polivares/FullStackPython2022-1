@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+}
+
+li{
+    list-style-type: none;
+}
+
+.group{
+    display: block;
+    width: 50%;
+    margin-left: 25%;
+}
+
+table{
+    border: 2px solid blue;
+    width: 100%;
+}
+
+table tr td{
+    border: 2px solid red;
+
+}
