@@ -282,6 +282,6 @@ Crearemos una sencilla aplicación de login para probar la funcionalidad de sesi
 
 ---
 
-# Fuentes
+# Fuentes adicionales
 - https://pythonbasics.org/what-is-flask-python/
 
