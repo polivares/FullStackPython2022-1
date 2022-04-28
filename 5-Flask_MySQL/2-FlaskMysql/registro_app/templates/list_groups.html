@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/general.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/list_groups.css') }}"
+    />
+    <title>Lista de grupos</title>
+  </head>
+  <body>
+    <h1>Lista de grupos</h1>
+    {% for grupo in grupos %}
+    <section class="group">
+      <h3>Grupo {{grupo.id}}</h3>
+      <table>
+        <tr>
+          <td><span>Integrantes</span></td>
+          <td>
+            <ul>
+              {% for integrante in grupo.integrantes %}
+              <li>{{integrante.nombre_integrante}}</li>
+              {%endfor%}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><span>Título del proyecto</span></td>
+          <td>{{grupo.nombre_grupo}}</td>
+        </tr>
+        <tr>
+          <td><span>Descripción del proyecto</span></td>
+          <td>{{grupo.descripcion_grupo}}</td>
+        </tr>
+      </table>
+    </section>
+    {%endfor%}
+    
+    <a href="{{ url_for('register') }}">Registro de grupos</a>
+
+  </body>
+</html>

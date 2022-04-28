@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    <title>Registro de grupos</title>
+</head>
+<body>
+    <section>
+        <h1>Registro de grupos</h1>
+        <h3>Registro de grupo {{ id }}</h3>
+        <form name="register_group" action="{{url_for('add_group')}}" method="POST">
+            <input type="text" placeholder="Nombre integrante" name="integrante1">
+            <input type="text" placeholder="Nombre integrante" name="integrante2">
+            <input type="text" placeholder="Nombre integrante" name="integrante3">
+            <input type="text" placeholder="Nombre del grupo" name="nombre_grupo">
+            <textarea name="project_description" placeholder="Descripción del proyecto"></textarea>
+            <button type="submit">Registrar grupo</button>
+        </form>
+        <a href="{{ url_for('list_groups') }}">Lista de grupos</a>
+    </section>
+
+</body>
+</html>
