@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pokecss.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/pokejs.js') }}"></script>
+    <title>Pokedex</title>
+</head>
+<body>
+    <!-- Formulario para buscar pokemones por nombre -->
+    <form id="form1" action="{{ url_for('search') }}" method="GET">
+        <input id="nombre" type="text" name="nombre" placeholder="Nombre del pokemon">
+        <input type="submit" value="Buscar">
+    </form>
+    <!-- Tabla con los datos de los pokemones -->
+    <table id="poketable" hidden>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Peso</th>
+            <th>Altura</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <td id="nombre_pokemon"></td>
+            <td id="tipo_pokemon"></td>
+            <td id="peso_pokemon"></td>
+            <td id="altura_pokemon"></td>
+            <td id="imagen_pokemon"></td>
+        </tr>
+    </table>
+</body>
+</html>
